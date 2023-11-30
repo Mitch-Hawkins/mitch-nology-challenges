@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  height: 300px;
+  flex-wrap: wrap;
+}
+
+.p-container {
+  display: flex;
+  width: 33.3%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#container1 {
+  background-color: red;
+}
+
+#container2 {
+  background-color: blue;
+}
+
+#container3 {
+  background-color: green;
+}
+
+#container4 {
+  background-color: yellow;
+}
+
+#container5 {
+  background-color: orange;
+}

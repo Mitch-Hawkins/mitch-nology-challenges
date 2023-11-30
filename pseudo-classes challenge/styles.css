@@ -1,0 +1,15 @@
+* {
+  margin: 5px;
+}
+
+button:active {
+  background-color: skyblue;
+}
+
+#textbox:focus {
+  background-color: skyblue;
+}
+
+#textbox:invalid {
+  outline-color: red;
+}
