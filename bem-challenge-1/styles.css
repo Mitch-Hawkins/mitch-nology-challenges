@@ -2,7 +2,7 @@
   font-family: sans-serif;
 }
 
-.header--dashedgreen {
+.header_border--dashedgreen {
   border: 3px dashed green;
 }
 
@@ -15,7 +15,7 @@
   text-align: right;
 }
 
-.header--solidcoral {
+.header_border--solidcoral {
   border: 2px solid coral;
 }
 
