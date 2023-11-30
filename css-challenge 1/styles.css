@@ -1,0 +1,54 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+}
+
+h1 ~ p {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+}
+
+/* ul + p {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+} */
+
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: none;
+}
+
+div + p {
+  color: coral;
+}
+
+div {
+  border: 2px solid black;
+}
+
+p + p {
+  color: brown;
+}
+
+/* h4 {
+  font-family: Arial;
+  font-weight: 200;
+  color: red;
+  text-decoration: underline;
+} */
+
+/* p {
+  color: coral;
+}
+
+
+
+/* h1 + ul {
+  border: 2px solid Black;
+}
+
+h1 + h4 {
+  border: 2px solid Black;
+} */
