@@ -1,0 +1,24 @@
+* {
+  font-family: sans-serif;
+}
+
+.header--dashedgreen {
+  border: 3px dashed green;
+}
+
+.header_paragraph--bluelinethrough {
+  color: blue;
+  text-decoration: line-through;
+}
+
+.header_paragraph--alignright {
+  text-align: right;
+}
+
+.header--solidcoral {
+  border: 2px solid coral;
+}
+
+.header_title--center {
+  text-align: center;
+}
