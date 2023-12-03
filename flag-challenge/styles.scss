@@ -8,7 +8,7 @@ section {
   height: 200px;
 }
 
-#flag_stripe_one {
+#flag__stripe__one {
   @include mixins.irish(green, 33.3%, 100%) {
   }
   @include mixins.belgian(black, 33.3%, 100%) {
@@ -17,7 +17,7 @@ section {
   }
 }
 
-#flag_stripe_two {
+#flag__stripe__two {
   @include mixins.irish(white, 33.3%, 100%) {
   }
   @include mixins.belgian(yellow, 33.3%, 100%) {
@@ -26,7 +26,7 @@ section {
   }
 }
 
-#flag_stripe_three {
+#flag__stripe__three {
   @include mixins.irish(orange, 33.3%, 100%) {
   }
   @include mixins.belgian(red, 33.3%, 100%) {
