@@ -1,0 +1,36 @@
+@use "./partials/mixins";
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  width: 300px;
+  height: 200px;
+}
+
+#flag_stripe_one {
+  @include mixins.irish(green, 33.3%, 100%) {
+  }
+  @include mixins.belgian(black, 33.3%, 100%) {
+  }
+  @include mixins.german(black, 100%, 33.3%) {
+  }
+}
+
+#flag_stripe_two {
+  @include mixins.irish(white, 33.3%, 100%) {
+  }
+  @include mixins.belgian(yellow, 33.3%, 100%) {
+  }
+  @include mixins.german(red, 100%, 33.3%) {
+  }
+}
+
+#flag_stripe_three {
+  @include mixins.irish(orange, 33.3%, 100%) {
+  }
+  @include mixins.belgian(red, 33.3%, 100%) {
+  }
+  @include mixins.german(yellow, 100%, 33.3%) {
+  }
+}
