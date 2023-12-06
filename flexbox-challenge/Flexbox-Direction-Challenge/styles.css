@@ -33,6 +33,7 @@
 main {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   border: 2px solid black;
   flex-direction: column-reverse;
   width: 600px;
