@@ -22,7 +22,7 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.reduce((acc, num) => acc + num);
 };
 
 /**
@@ -35,7 +35,7 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  return toReverse.split("").reverse().join("");
 };
 
 /**
@@ -48,7 +48,9 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  let tmp = charcterArr.map((char) => char.toLowerCase()).sort();
+  //console.log(tmp);
+  return tmp;
 };
 
 /**
@@ -63,7 +65,9 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  return numberArr.sort(function (a, b) {
+    return b - a;
+  });
 };
 
 /**
@@ -94,7 +98,13 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+  if (stockList.indexOf(toCheck) >= 0) {
+    return `${toCheck} is instock, it is on aisle ${stockList.indexOf(
+      toCheck
+    )}.`;
+  } else {
+    return `Sorry ${toCheck} is not instock.`;
+  }
 };
 
 /**
@@ -108,7 +118,9 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  return coloursArr.every(
+    (col) => col == "red" || col == "yellow" || col == "blue"
+  );
 };
 
 /**
@@ -125,7 +137,12 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  let tmp = stringOne.split("").reverse().join("");
+  if (tmp === stringOne) {
+    return true;
+  } else if (tmp !== stringOne) {
+    return false;
+  }
 };
 
 /**
@@ -139,7 +156,7 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.map((nestArr) => nestArr.reduce((acc, num) => acc + num));
 };
 
 /**
@@ -172,5 +189,16 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  if (toEncrypt.length <= 3) return toEncrypt;
+  return toEncrypt
+    .split("")
+    .reduce(
+      (acc, curr, ind) => {
+        acc[ind % 3].push(curr);
+        return acc;
+      },
+      [[], [], []]
+    )
+    .flat()
+    .join("");
 };
