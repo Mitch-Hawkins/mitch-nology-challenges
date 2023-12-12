@@ -189,6 +189,10 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
+  // let modulus = 3;
+  // let initAcc = [];
+  // initAcc - initAcc.map((n) => Array.fill);
+
   if (toEncrypt.length <= 3) return toEncrypt;
   return toEncrypt
     .split("")
