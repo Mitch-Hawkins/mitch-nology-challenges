@@ -346,14 +346,18 @@ export class BookShelf {
    * @return {string} "Learning JavaScript Design Patterns"
    */
 
-  // WRITE LATEST BOOK GETTER HERE
+  get latestBook() {
+    return this._booksOnShelf[this._booksOnShelf.length -1]
+  }
 
   /**
    * A setter that adds a new book to the list of books.
    * @param {string} "Eloquent JavaScript"
    */
 
-  // WRITE ADD BOOK TO SHELF SETTER HERE
+  set addBookToShelf (book) {
+    this._booksOnShelf.push(book);
+  }
 }
 
 /**
@@ -406,14 +410,20 @@ export class BankAccount {
    * @param {string} email
    * @param {number} balance
    */
-  constructor() {}
+  constructor(name, email, balance = 0) {
+    this.name = name;
+    this.email = email;
+    this._balance = balance;
+  }
 
   /**
    * A getter that returns the current balance.
    * @return {number} 20
    */
 
-  // WRITE BALANCE GETTER HERE
+  get balance() {
+    return this._balance;
+  }
 
   /**
    * A method that deposits to the balance.
@@ -424,7 +434,15 @@ export class BankAccount {
    * @return {(number|string)} 40 or "Invalid input, unable to deposit"
    */
 
-  // WRITE DEPOSIT METHOD HERE
+  deposit(toDeposit) {
+    toDeposit = parseFloat(toDeposit);
+    if (toDeposit < 0 || isNaN(toDeposit)) {
+      return "Invalid input, unable to deposit";
+    } else {
+      this._balance += toDeposit
+      return this._balance;
+    }
+  }
 
   /**
    * A method that withdraws from the balance.
@@ -436,5 +454,15 @@ export class BankAccount {
    * @return {(number|string)} 40 or "Invalid input, unable to deposit" or "Insufficient funds, unable to withdraw"
    */
 
-  // WRITE WITH DRAW METHOD HERE
+  withdraw(withdrawAmount) {
+    withdrawAmount = parseFloat(withdrawAmount);
+    if (withdrawAmount < 0 || isNaN(withdrawAmount)) {
+      return "Invalid input, unable to withdraw"
+    } else if (withdrawAmount > this._balance) {
+      return "Insufficient funds, unable to withdraw"
+    } else {
+      this._balance -= withdrawAmount;
+      return this._balance;
+    }
+  }
 }
