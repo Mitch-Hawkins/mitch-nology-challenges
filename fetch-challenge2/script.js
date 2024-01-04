@@ -73,27 +73,77 @@ async function RefreshHTML(pokemonArr) {
       pokemonCard.append(`Secondary Type: ${pokemonType2.textContent}`);
     }
 
-    pokemonCard.append(ability1Paragraph);
-    pokemonCard.append(`Primary Ability: ${pokemonAbility1.textContent}`);
+    // pokemonCard.append(ability1Paragraph);
+    // pokemonCard.append(`Primary Ability: ${pokemonAbility1.textContent}`);
+
+    // if (
+    //   pokemonArr[i].abilities.length >= 2 &&
+    //   pokemonArr[i].abilities[1].is_hidden
+    // ) {
+    //   pokemonCard.append(ability2Paragraph);
+    //   pokemonCard.append(`Hidden Ability: ${pokemonAbility2.textContent}`);
+    // } else if (
+    //   pokemonArr[i].abilities.length >= 2 &&
+    //   pokemonArr[i].abilities[1].is_hidden == false
+    // ) {
+    //   pokemonCard.append(ability2Paragraph);
+    //   pokemonCard.append(`Secondary Ability: ${pokemonAbility2.textContent}`);
+    // }
+
+    // if (pokemonArr[i].abilities.length == 3) {
+    //   pokemonCard.append(ability3Paragraph);
+    //   pokemonCard.append(`Hidden Ability: ${pokemonAbility3.textContent}`);
+    // }
+
+    const abilityButton = document.createElement("button");
+    abilityButton.textContent = "Abilities";
+    pokemonCard.append(abilityButton);
+    const abilityDialog = document.createElement("dialog");
+    const dialogContainer = document.querySelector("article");
+    const closeDialogButton = document.createElement("button");
+
+    abilityDialog.append(ability1Paragraph);
+    ability1Paragraph.append(`Primary Ability: ${pokemonAbility1.textContent}`);
 
     if (
       pokemonArr[i].abilities.length >= 2 &&
       pokemonArr[i].abilities[1].is_hidden
     ) {
-      pokemonCard.append(ability2Paragraph);
-      pokemonCard.append(`Hidden Ability: ${pokemonAbility2.textContent}`);
+      abilityDialog.append(ability2Paragraph);
+      ability2Paragraph.append(
+        `Hidden Ability: ${pokemonAbility2.textContent}`
+      );
     } else if (
       pokemonArr[i].abilities.length >= 2 &&
       pokemonArr[i].abilities[1].is_hidden == false
     ) {
-      pokemonCard.append(ability2Paragraph);
-      pokemonCard.append(`Secondary Ability: ${pokemonAbility2.textContent}`);
+      abilityDialog.append(ability2Paragraph);
+      ability2Paragraph.append(
+        `Secondary Ability: ${pokemonAbility2.textContent}`
+      );
     }
 
     if (pokemonArr[i].abilities.length == 3) {
-      pokemonCard.append(ability3Paragraph);
-      pokemonCard.append(`Hidden Ability: ${pokemonAbility3.textContent}`);
+      abilityDialog.append(ability3Paragraph);
+      ability3Paragraph.append(
+        `Hidden Ability: ${pokemonAbility3.textContent}`
+      );
     }
+
+    abilityDialog.append(closeDialogButton);
+    closeDialogButton.append("Close");
+
+    dialogContainer.append(abilityDialog);
+
+    abilityButton.addEventListener("click", () => {
+      //   abilityDialog.innerHTML = "";
+
+      abilityDialog.showModal();
+    });
+
+    closeDialogButton.addEventListener("click", () => {
+      abilityDialog.close();
+    });
 
     cardsContainer.append(pokemonCard);
   }
