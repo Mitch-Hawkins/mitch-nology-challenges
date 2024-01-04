@@ -16,7 +16,7 @@ async function getMultiplePokemon(n) {
 }
 
 async function onPageLoad() {
-  const pokemonArr = await getMultiplePokemon(40); //use the fckn limit parameter
+  const pokemonArr = await getMultiplePokemon(40);
   RefreshHTML(pokemonArr);
 }
 
@@ -73,28 +73,6 @@ async function RefreshHTML(pokemonArr) {
       pokemonCard.append(`Secondary Type: ${pokemonType2.textContent}`);
     }
 
-    // pokemonCard.append(ability1Paragraph);
-    // pokemonCard.append(`Primary Ability: ${pokemonAbility1.textContent}`);
-
-    // if (
-    //   pokemonArr[i].abilities.length >= 2 &&
-    //   pokemonArr[i].abilities[1].is_hidden
-    // ) {
-    //   pokemonCard.append(ability2Paragraph);
-    //   pokemonCard.append(`Hidden Ability: ${pokemonAbility2.textContent}`);
-    // } else if (
-    //   pokemonArr[i].abilities.length >= 2 &&
-    //   pokemonArr[i].abilities[1].is_hidden == false
-    // ) {
-    //   pokemonCard.append(ability2Paragraph);
-    //   pokemonCard.append(`Secondary Ability: ${pokemonAbility2.textContent}`);
-    // }
-
-    // if (pokemonArr[i].abilities.length == 3) {
-    //   pokemonCard.append(ability3Paragraph);
-    //   pokemonCard.append(`Hidden Ability: ${pokemonAbility3.textContent}`);
-    // }
-
     const abilityButton = document.createElement("button");
     abilityButton.textContent = "Abilities";
     pokemonCard.append(abilityButton);
@@ -136,8 +114,6 @@ async function RefreshHTML(pokemonArr) {
     dialogContainer.append(abilityDialog);
 
     abilityButton.addEventListener("click", () => {
-      //   abilityDialog.innerHTML = "";
-
       abilityDialog.showModal();
     });
 
