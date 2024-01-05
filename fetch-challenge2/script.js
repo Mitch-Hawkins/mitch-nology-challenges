@@ -1,9 +1,10 @@
 const getPokemon = async (query) => {
   const response = await fetch(
+    //is the await keyword required here? Or does it just make it all slower??
     `https://pokeapi.co/api/v2/pokemon/${query}/`,
     {}
   );
-  return await response.json();
+  return await response.json(); //how is this line different to using .then(res => res.json);
 };
 
 async function getMultiplePokemon(n) {
@@ -19,6 +20,8 @@ async function onPageLoad() {
   const pokemonArr = await getMultiplePokemon(40);
   RefreshHTML(pokemonArr);
 }
+
+//====REFRESH HTML====================================================================
 
 async function RefreshHTML(pokemonArr) {
   const cardsContainer = document.querySelector("section");
@@ -113,7 +116,7 @@ async function RefreshHTML(pokemonArr) {
 
     dialogContainer.append(abilityDialog);
 
-    abilityButton.addEventListener("click", () => {
+    pokemonCard.addEventListener("click", () => {
       abilityDialog.showModal();
     });
 
@@ -125,11 +128,15 @@ async function RefreshHTML(pokemonArr) {
   }
 }
 
+//===========================================================================================
+
 onPageLoad();
+
+//====Search Bar Functionality===============================================================
 
 const searchBar = document.querySelector("input");
 
-searchBar.addEventListener("input", async (event) => {
+searchBar.addEventListener("input", async () => {
   const pokemonArr = await getMultiplePokemon(40);
   const filteredArr = pokemonArr.filter((mon) =>
     mon.name.includes(searchBar.value)
