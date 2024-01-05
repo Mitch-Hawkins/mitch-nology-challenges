@@ -1,25 +1,54 @@
-const getPokemon = async (query) => {
-  const response = await fetch(
-    //is the await keyword required here? Or does it just make it all slower??
-    `https://pokeapi.co/api/v2/pokemon/${query}/`,
-    {}
-  );
-  return await response.json(); //how is this line different to using .then(res => res.json);
+let pokeMax = 493;
+let pokePerPage = 40;
+let numberOfPages = Math.ceil(pokeMax / pokePerPage);
+const url = `https://pokeapi.co/api/v2/pokemon/`;
+let pokemonArr = [];
+
+const getPokemon = async (offset) => {
+  const response = fetch(
+    `${url}?limit=${pokePerPage}&offset=${pokePerPage * offset}` //change this to use the .next/.previous
+  ).then((res) => res.json());
+  // console.log(response);
+  return response;
 };
 
-async function getMultiplePokemon(n) {
+async function getMultiplePokemonInIdOrder() {
   const promisesArr = [];
-  for (i = 1; i <= n; i++) {
+  for (i = 0; i < numberOfPages; i++) {
     promisesArr.push(getPokemon(i));
   }
-  const pokemonArr = await Promise.all(promisesArr);
+  pokemonArr = await Promise.all(promisesArr);
+  console.log(pokemonArr);
   return pokemonArr;
 }
 
 async function onPageLoad() {
-  const pokemonArr = await getMultiplePokemon(40);
+  const pokemonArr = await getMultiplePokemonInIdOrder();
   RefreshHTML(pokemonArr);
 }
+
+async function filterPokemonBySearch() {
+  //const pokemonArr = await getMultiplePokemon(pokeMax);
+  const filteredArr = pokemonArr.filter((mon) =>
+    mon.name.includes(searchBar.value)
+  );
+  const dexIdArray = filteredArr.map((mon) => mon.id);
+  console.log(filteredArr);
+  const filteredPokemon = await getMultiplePokemonInIdOrder(dexIdArray);
+  return filteredPokemon;
+}
+
+onPageLoad();
+
+// async function getMultiplePokemon(n) {
+//   const promisesArr = [];
+//   for (i = 1; i <= n; i++) {
+//     promisesArr.push(getPokemon(i));
+//   }
+//   const pokemonArr = await Promise.all(promisesArr);
+
+//   return pokemonArr;
+// }
 
 //====REFRESH HTML====================================================================
 
@@ -130,28 +159,21 @@ async function RefreshHTML(pokemonArr) {
 
 //===========================================================================================
 
-onPageLoad();
-
 //====Search Bar Functionality===============================================================
 
 const searchBar = document.querySelector("input");
 
 searchBar.addEventListener("input", async () => {
-  const pokemonArr = await getMultiplePokemon(40);
-  const filteredArr = pokemonArr.filter((mon) =>
-    mon.name.includes(searchBar.value)
-  );
-  const dexIdArray = filteredArr.map((mon) => mon.id);
-  console.log(filteredArr);
-  const filteredPokemon = await getMultiplePokemonInIdOrder(dexIdArray);
-  RefreshHTML(filteredPokemon);
+  RefreshHTML(filterPokemonBySearch());
 });
 
-async function getMultiplePokemonInIdOrder(array) {
-  const promisesArr = [];
-  for (i = 0; i < array.length; i++) {
-    promisesArr.push(getPokemon(array[i]));
-  }
-  const pokemonArr = await Promise.all(promisesArr);
-  return pokemonArr;
-}
+// async function filterPokemonBySearch() {
+//   const pokemonArr = await getMultiplePokemon(pokeMax);
+//   const filteredArr = pokemonArr.filter((mon) =>
+//     mon.name.includes(searchBar.value)
+//   );
+//   const dexIdArray = filteredArr.map((mon) => mon.id);
+//   console.log(filteredArr);
+//   const filteredPokemon = await getMultiplePokemonInIdOrder(dexIdArray);
+//   return filteredPokemon;
+// }
