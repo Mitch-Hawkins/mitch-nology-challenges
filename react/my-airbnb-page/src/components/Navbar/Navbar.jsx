@@ -1,14 +1,20 @@
 import React from "react";
 import Navcategory from "../Navcategory/Navcategory";
 import styles from "./Navbar.module.scss";
+import data from "../../data/iconsData.json";
 
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <Navcategory title="Amazing Views" />
-      <Navcategory title="Tiny Homes" />
-      <Navcategory title="Countryside" />
-      <Navcategory title="Cabins" />
+      {data.map((filter) => {
+        return (
+          <Navcategory
+            key={filter.id}
+            title={filter.title}
+            image={filter.image}
+          />
+        );
+      })}
     </div>
   );
 };

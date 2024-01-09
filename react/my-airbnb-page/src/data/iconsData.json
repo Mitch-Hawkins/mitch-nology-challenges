@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Amazing Views",
+    "image": "http://placekitten.com/16/16"
+  },
+  {
+    "id": "2",
+    "title": "Countryside",
+    "image": "http://placekitten.com/16/16"
+  },
+  {
+    "id": "3",
+    "title": "Farms",
+    "image": "http://placekitten.com/16/16"
+  },
+  {
+    "id": "4",
+    "title": "Cabins",
+    "image": "http://placekitten.com/16/16"
+  }
+]

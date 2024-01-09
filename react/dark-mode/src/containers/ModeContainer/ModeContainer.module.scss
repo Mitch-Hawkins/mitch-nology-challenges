@@ -1,0 +1,26 @@
+div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & button {
+    width: 300px;
+  }
+}
+
+.lightMode {
+  background-color: white;
+  & h1 {
+    color: black;
+  }
+}
+
+.darkMode {
+  background-color: black;
+  & h1 {
+    color: white;
+  }
+}

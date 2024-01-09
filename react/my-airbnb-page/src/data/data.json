@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "location": "Pet Beach, Australia",
+    "distance": "132 kilometres",
+    "dates_available": "10-22 Jan",
+    "price": "$30,000 AUD ",
+    "rating": "4.55"
+  },
+  {
+    "id": "2",
+    "location": "Cat Town, Australia",
+    "distance": "411 kilometres",
+    "dates_available": "15-29 Jan",
+    "price": "$7,000 AUD ",
+    "rating": "3.86"
+  },
+  {
+    "id": "3",
+    "location": "Dog Village, Australia",
+    "distance": "345 kilometres",
+    "dates_available": "2-14 Feb",
+    "price": "$9,999 AUD ",
+    "rating": "4.14"
+  },
+  {
+    "id": "4",
+    "location": "Kitten City, Australia",
+    "distance": "248 kilometres",
+    "dates_available": "29 Jan - 14 Feb",
+    "price": "$22,000 AUD ",
+    "rating": "4.86"
+  }
+]
