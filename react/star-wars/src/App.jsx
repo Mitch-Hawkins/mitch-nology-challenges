@@ -8,6 +8,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [isSortedByLength, setIsSortedByLength] = useState(false);
+
   const fetchPageData = async () => {
     const fetchedData = await fetch(`https://swapi.dev/api/starships/`);
     const returnedData = await fetchedData.json();
@@ -24,10 +26,18 @@ function App() {
 
   return (
     <>
-      <SearchBar setSearchTerm={setSearchTerm} />
+      <SearchBar
+        setSearchTerm={setSearchTerm}
+        setIsSortedByLength={setIsSortedByLength}
+        isSortedByLength={isSortedByLength}
+      />
       {loading && <p>Loading...</p>}
       {!loading && pageData && (
-        <StarshipCardList pageData={pageData} searchTerm={searchTerm} />
+        <StarshipCardList
+          pageData={pageData}
+          searchTerm={searchTerm}
+          isSortedByLength={isSortedByLength}
+        />
       )}
     </>
   );

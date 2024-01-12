@@ -1,10 +1,15 @@
 import StarCard from "../../components/StarshipCard/StarshipCard";
 
-const StarshipCardList = ({ pageData, searchTerm }) => {
+const StarshipCardList = ({ pageData, searchTerm, isSortedByLength }) => {
   let dataToRender = [...pageData];
   if (searchTerm) {
     dataToRender = dataToRender.filter((ship) => {
       return ship.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+  }
+  if (isSortedByLength) {
+    dataToRender = dataToRender.sort(function (a, b) {
+      return a.length - b.length;
     });
   }
 
