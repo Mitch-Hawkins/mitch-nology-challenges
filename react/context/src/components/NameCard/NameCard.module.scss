@@ -1,0 +1,16 @@
+.card {
+    padding: 15px;
+    width: 200px;
+
+    &_light {
+        background-color: blanchedalmond;
+        border: 1px solid grey;
+        color: grey;
+    }
+
+    &_dark {
+        background-color: grey;
+        border: 1px solid blanchedalmond;
+        color: blanchedalmond;
+    }
+}

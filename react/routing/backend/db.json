@@ -1,0 +1,79 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "FakeOS",
+      "description": "A basic version of my favourite operating system with 3 working applications",
+      "deployedLink": "https://www.netlify.com/",
+      "githubLink": "https://github.com/"
+    },
+    {
+      "id": "2",
+      "title": "Morse Code",
+      "description": "An app that allows us to translate English to morse code and morse code to English with Jest unit tests",
+      "deployedLink": "https://www.netlify.com/",
+      "githubLink": "https://github.com/"
+    },
+    {
+      "id": "3",
+      "title": "Google Books",
+      "description": "A UI for the Google Books API",
+      "deployedLink": "https://www.netlify.com/",
+      "githubLink": "https://github.com/"
+    },
+    {
+      "title": "Ecommrce",
+      "description": "A firestore ecommerce app",
+      "deployedLink": "https://www.netlify.com/",
+      "githubLink": "https://github.com/",
+      "id": "4"
+    }
+  ],
+  "messages": [
+    {
+      "name": "Martyna Krol",
+      "email": "martyna.krol@nology.io",
+      "message": "nkcdnvladk",
+      "id": "1"
+    },
+    {
+      "name": "Martyna Krol",
+      "email": "martyna.krol@nology.io",
+      "message": "some message here",
+      "id": "2"
+    },
+    {
+      "name": "jane",
+      "email": "jane@email.com",
+      "message": "hello",
+      "id": "3"
+    },
+    {
+      "name": "JOhn",
+      "email": "john@email.com",
+      "message": "Hi there",
+      "id": "4"
+    },
+    {
+      "name": "Josh",
+      "email": "josh@email.com",
+      "message": "Hello how are you?",
+      "sentAt": "2024-01-16T01:25:34.876Z",
+      "id": "5"
+    },
+    {
+      "id": "5874",
+      "name": "Mitch",
+      "email": "mitch@email.com",
+      "message": "Test message from Mitch",
+      "sentAt": "2024-01-16T01:46:00.871Z"
+    },
+    {
+      "id": "a6e4",
+      "name": "David",
+      "email": "david@mail.com",
+      "message": "Another test message from david",
+      "sentAt": "2024-01-16T01:46:21.416Z"
+    }
+  ]
+}

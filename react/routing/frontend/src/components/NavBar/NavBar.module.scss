@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(25, 25, 25);
+
+    &:visited {
+        color: rgb(25, 25, 25);
+    }
+
+    &:hover {
+        color: rgb(208, 96, 9);
+    }
+}
+
+.active_link {
+    color: green;
+
+    &:visited {
+        color: green;
+    }
+}
