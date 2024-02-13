@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../../../services/movies";
+import { getMovieById, incrementTimesWatched } from "../../../services/movies";
 import { useState, useEffect } from "react";
 import styles from "./MoviePage.module.scss";
 
@@ -18,7 +18,11 @@ const MoviePage = () => {
       .then((res) => setMovie(res))
       .catch((e) => setError(e))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
+
+  const handleIncrement = () => {
+    incrementTimesWatched(id);
+  };
 
   return (
     <main>
@@ -33,6 +37,9 @@ const MoviePage = () => {
           <p>Directed by {movie.director}</p>
           <p>Released in {movie.yearReleased}</p>
           <p>Watched {movie.timesWatched} times</p>
+          <button onClick={handleIncrement}>
+            Increment times watched by 1
+          </button>
         </>
       )}
     </main>

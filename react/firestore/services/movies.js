@@ -4,6 +4,10 @@ import {
   doc,
   getDoc,
   deleteDoc,
+  addDoc,
+  updateDoc,
+  increment,
+  onSnapshot,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
@@ -49,4 +53,36 @@ export const deleteMovie = async (id) => {
   //   if (!docSnap.exists()) {
   //     throw new Error("Movie not found");
   //   }
+};
+
+export const addNewMovie = async (data) => {
+  try {
+    const docRef = await addDoc(collection(db, "movies"), {
+      ...data,
+      timesWatched: 0,
+    });
+
+    // console.log("added movie with id" + docRef.id);
+    return docRef.id;
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const incrementTimesWatched = async (id) => {
+  const docRef = doc(db, "movies", id);
+  await updateDoc(docRef, {
+    timesWatched: increment(1),
+  });
+};
+
+export const subscribeToMovies = (callback) => {
+  const collectionRef = collection(db, "movies");
+  const unsubscribe = onSnapshot(collectionRef, (querySnapshot) => {
+    const movieData = querySnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    callback(movieData);
+  });
+  return unsubscribe;
 };

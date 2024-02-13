@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import AddMoviePage from "./pages/AddMoviePage/AddMoviePage";
 import Nav from "./components/Nav/Nav";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import LiveHomePage from "./pages/HomePage/LiveHomePage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LiveHomePage />} />
           <Route path="/add-movie" element={<AddMoviePage />} />
           <Route path="/movies/:id" element={<MoviePage />} />
         </Routes>
